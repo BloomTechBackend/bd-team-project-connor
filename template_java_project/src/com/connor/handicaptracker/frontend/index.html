@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" />-->
+    <link rel="stylesheet" href="index.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="index.js" defer></script>
+    <title>Handicap Tracker</title>
+</head>
+<body>
+<div class="container">
+    <header class="ui main">
+        <div class="ui fixed menu">
+            <div class="ui container center">
+                <h2>Player Manager</h2>
+                <label>Username</label>
+                <input
+                        id="username"
+                        type="text"
+                        name="name"
+                        placeholder="Username" />
+            </div>
+            <div class="field">
+                <!--we dont want to upload an avatar for every round.... out of scope planning is to upload pics of actual scorecards-->
+                <label>Avatar</label>
+                <input
+                        id="Avatar"
+                        type="text"
+                        name="avatar"
+                        placeholder="URL of your avatar picture" />
+                <div class="field">
+                    <label>Email</label>
+                    <input
+                            id="PlayerEmail"
+                            type="text"
+                            name="email"
+                            placeholder="Email" />
+                </div>
+            </div>
+            <div class="field">
+                <label>Rounds</label>
+                <input
+                        id="Rounds"
+                        type="text"
+                        name="index"
+                        placeholder="Previous 20 rounds to calculate index" />
+            </div>
+                <div class="field">
+                    <label>Handicap Index</label>
+                    <input
+                            id="Handicap Index"
+                            type="text"
+                            name="index"
+                            placeholder="Current index" />
+
+            </div>
+        </div>
+        <button class="ui button blue">Create</button>
+    </header>
+    <div class="main">
+        <div class="main-heading">
+            <h2>add round</h2>
+            <label>Username</label>
+            <input
+                    id="usernameForAdds"
+                    type="text"
+                    name="name"
+                    placeholder="Username" />
+        </div>
+            <!--this was previously course rating-->
+        <form class="ui form" id="contact-form">
+                <div class="field">
+                    <div class="field">
+                        <label>Course</label>
+                        <input
+                        id="Course"
+                        type="text"
+                        name="Rating"
+                        placeholder="Course" />
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Round</label>
+                    <input
+                            id="Round"
+                            type="text"
+                            name="numbers"
+                            placeholder="Today's score" />
+                </div>
+
+                <button class="ui button blue">Add</button>
+            </form>
+            </form>
+            <h2>Previous Rounds</h2>
+                <div class="field">
+                <label>Username</label>
+                <input
+                        id="usernameForPreviousRounds"
+                        type="text"
+                        name="name"
+                        placeholder="Username" />
+             </div>
+                <div class="field">
+                <label>Previous Rounds</label>
+                <input
+                        id="Previous Round"
+                        type="text"
+                        name="numbers"
+                        placeholder="Comma Seperated list of accumulated rounds" />
+            </div>
+        <button class="ui button blue">Get</button>
+
+                <h2>Stats</h2>
+        <!-- PHASE 1: Add your div tag here with atributes class of "ui celled list" and an id of "stats" -->
+            </div>
+         </div>
+    </div>
+</body>
+</html>

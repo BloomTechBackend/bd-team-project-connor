@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golf Handicap Tracker - Create Player</title>
+</head>
+<body>
+<h1>Create Player</h1>
+<form id="createPlayerForm">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" required>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required>
+
+  <label for="handicapIndex">Handicap Index:</label>
+  <input type="number" id="handicapIndex" name="handicapIndex" required>
+
+  <button type="button" onclick="createPlayer()">Create Player</button>
+</form>
+
+<script>
+        function createPlayer() {
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const handicapIndex = document.getElementById('handicapIndex').value;
+
+            const playerData = {
+                username: username,
+                email: email,
+                handicapIndex: parseFloat(handicapIndex)
+            };
+
+            fetch('http://localhost:8080/api/players', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(playerData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Player created successfully!');
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+* {
+    margin: 5;
+    border: 5;
+    box-sizing: border-box;
+}
+
+.main {
+    text-align: center;
+}
+
+body {
+    background-color: #333;
+    color: #fff;
+}
+
+.ui.search input {
+
+  border-radius: 0 !important;
+}

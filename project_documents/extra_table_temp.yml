@@ -1,0 +1,76 @@
+#Resources:
+#  PlayersTable:
+#    Type: AWS::DynamoDB::Table
+#    Properties:
+#      AttributeDefinitions:
+#        - AttributeName: "username"
+#          AttributeType: "S"
+#      KeySchema:
+#        - AttributeName: "username"
+#          KeyType: "HASH"
+#      BillingMode: "PAY_PER_REQUEST"
+#      TableName: "players"
+#
+#  RoundsTable:
+#    Type: AWS::DynamoDB::Table
+#    Properties:
+#      AttributeDefinitions:
+#        - AttributeName: "date"
+#          AttributeType: "S"
+#        - AttributeName: "score"
+#          AttributeType: "N"
+#      KeySchema:
+#        - AttributeName: "date"
+#          KeyType: "HASH"
+#        - AttributeName: "score"
+#          KeyType: "RANGE"
+#      BillingMode: "PAY_PER_REQUEST"
+#      TableName: "rounds"
+#
+#  CourseRatingsTable:
+#    Type: AWS::DynamoDB::Table
+#    Properties:
+#      AttributeDefinitions:
+#        - AttributeName: "course"
+#          AttributeType: "S"
+#        - AttributeName: "rating"
+#          AttributeType: "N"
+#      KeySchema:
+#        - AttributeName: "course"
+#          KeyType: "HASH"
+#        - AttributeName: "rating"
+#          KeyType: "RANGE"
+#      BillingMode: "PAY_PER_REQUEST"
+#      TableName: "courses"
+#
+#  CourseSlopesTable:
+#    Type: AWS::DynamoDB::Table
+#    Properties:
+#      AttributeDefinitions:
+#        - AttributeName: "course"
+#          AttributeType: "S"
+#        - AttributeName: "slope"
+#          AttributeType: "N"
+#      KeySchema:
+#        - AttributeName: "course"
+#          KeyType: "HASH"
+#        - AttributeName: "slope"
+#          KeyType: "RANGE"
+#      BillingMode: "PAY_PER_REQUEST"
+#      TableName: "courses"
+#
+#  HandicapsTable:
+#    Type: AWS::DynamoDB::Table
+#    Properties:
+#      AttributeDefinitions:
+#        - AttributeName: "username"
+#          AttributeType: "S"
+#        - AttributeName: "index"
+#          AttributeType: "N"
+#      KeySchema:
+#        - AttributeName: "username"
+#          KeyType: "HASH"
+#        - AttributeName: "index"
+#          KeyType: "RANGE"
+#      BillingMode: "PAY_PER_REQUEST"
+#      TableName: "handicaps"
