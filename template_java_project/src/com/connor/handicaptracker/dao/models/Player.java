@@ -39,26 +39,27 @@ public class Player {
         }
 
 
-        public String getEmail() {
-            return email;
-        }
-
-        public List<Rounds> getRounds() {
-            return rounds;
-        }
-
     public void setUsername(String username) {
         this.username = username;
     }
 
+    public String getEmail() {
+            return email;
+        }
+
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Rounds> getRounds() {
+        return rounds;
     }
 
     public void setRounds(List<Rounds> rounds) {
         this.rounds = rounds;
     }
 
+    // the sethandicap should be replaced by a calculatehandicap?
     public void setHandicap(double handicap) {
         this.handicap = handicap;
     }

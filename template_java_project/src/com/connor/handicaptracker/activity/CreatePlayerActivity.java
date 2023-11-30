@@ -19,6 +19,7 @@ import com.connor.handicaptracker.exceptions.RoundNotFoundException;
 import com.connor.handicaptracker.models.PlayerModel;
 import com.connor.handicaptracker.models.requests.CreatePlayerRequest;
 import com.connor.handicaptracker.models.results.CreatePlayerResult;
+import com.connor.handicaptracker.util.HandicapCalculator;
 import com.connor.handicaptracker.util.HandicapServiceUtils;
 
 import javax.inject.Inject;
@@ -34,7 +35,7 @@ import java.util.List;
  */
 public class CreatePlayerActivity implements RequestHandler<CreatePlayerRequest, CreatePlayerResult> {
 
-    private final PlayerDao playerDao;
+     private final PlayerDao playerDao;
 
     /**
      * Instantiates a new CreatePlayerActivity object.
@@ -80,6 +81,7 @@ public class CreatePlayerActivity implements RequestHandler<CreatePlayerRequest,
         Player player = new Player();
 
 
+
         player.setUsername(createPlayerRequest.getUsername());
         player.setEmail(createPlayerRequest.getEmail());
         if(createPlayerRequest.getRounds()!=null) {
@@ -88,10 +90,13 @@ public class CreatePlayerActivity implements RequestHandler<CreatePlayerRequest,
         }else{
             throw new RoundNotFoundException();
         }
+        //player.getRounds();
         // handicap calculated here
-        player.setHandicap(0);
+        HandicapCalculator.calculateHandicapIndex(createPlayerRequest.getRounds());
+
+        //player.setHandicap(0);
         playerDao.savePlayer(player);
-        PlayerModel playerModel = new ModelConverter().toPlayerModel(player);
+        //PlayerModel playerModel = new ModelConverter().toPlayerModel(player);
 
 
         return CreatePlayerResult.builder()

@@ -1,7 +1,9 @@
 package com.connor.handicaptracker.converter;
 
+import com.connor.handicaptracker.dao.models.Handicap;
 import com.connor.handicaptracker.dao.models.Player;
 import com.connor.handicaptracker.dao.models.Rounds;
+import com.connor.handicaptracker.models.HandicapModel;
 import com.connor.handicaptracker.models.PlayerModel;
 import com.connor.handicaptracker.models.RoundsModel;
 
@@ -38,4 +40,15 @@ public class ModelConverter {
                 .withScore(round.getScore())
                 .build();
     }
+
+    public HandicapModel toHandicapModel(Handicap handicap) {
+
+
+        return HandicapModel.builder()
+                .withUsername(handicap.getUsername())
+                .withHandicapIndex(handicap.getHandicapIndex())
+                .build();
+    }
+
+
 }

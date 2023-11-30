@@ -31,7 +31,7 @@ public class RoundsDao {
 
 
 
-    public Rounds getRound(String date, int score) {
+    public Rounds getRound(String date, double score) {
         Rounds round = this.dynamoDbMapper.load(Rounds.class, date, score);
 
         if (round == null) {

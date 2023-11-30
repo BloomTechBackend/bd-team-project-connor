@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class RoundsModel {
     private String date;
-    private int score;
+    private double score;
 
     public RoundsModel() {
 
@@ -25,11 +25,11 @@ public class RoundsModel {
         this.date = date;
     }
 
-    public int getScore() {
+    public double getScore() {
         return score;
     }
 
-    public void setScore(int score) {
+    public void setScore(double score) {
         this.score = score;
     }
 
@@ -58,14 +58,14 @@ public class RoundsModel {
 
     public static final class Builder {
         private String date;
-        private int score;
+        private double score;
 
         public Builder withDate(String dateToUse) {
             this.date = dateToUse;
             return this;
         }
 
-        public Builder withScore(int scoreToUse) {
+        public Builder withScore(double scoreToUse) {
             this.score = scoreToUse;
             return this;
         }
