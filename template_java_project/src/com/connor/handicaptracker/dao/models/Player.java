@@ -68,8 +68,8 @@ public class Player {
             return handicap;
         }
 
-        private double calculateHandicap() {
-            // Implement handicap calculation logic
-        return handicap;
-    }
+//        private double calculateHandicap() {
+//            // Implement handicap calculation logic
+//        return handicap;
+//    }
 }

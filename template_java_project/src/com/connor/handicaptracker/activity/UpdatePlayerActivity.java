@@ -17,6 +17,7 @@ import com.connor.handicaptracker.models.requests.CreatePlayerRequest;
 import com.connor.handicaptracker.models.requests.UpdatePlayerRequest;
 import com.connor.handicaptracker.models.results.CreatePlayerResult;
 import com.connor.handicaptracker.models.results.UpdatePlayerResult;
+import com.connor.handicaptracker.util.HandicapCalculator;
 import com.connor.handicaptracker.util.HandicapServiceUtils;
 
 import javax.inject.Inject;
@@ -57,7 +58,7 @@ import java.util.ArrayList;
          */
         @Override
         public UpdatePlayerResult handleRequest(final UpdatePlayerRequest updatePlayerRequest, Context context) {
-            //log.info("Received CreatePlayerRequest {}", createPlayerRequest);
+
             if(!HandicapServiceUtils.isValidString(updatePlayerRequest.getUsername()) || updatePlayerRequest.getUsername().contains("\"")
                     || updatePlayerRequest.getUsername().contains("'")
                     || updatePlayerRequest.getUsername().contains("\\")){
@@ -67,24 +68,20 @@ import java.util.ArrayList;
                     throw new RuntimeException(e);
                 }
             }
-
             Player player = new Player();
-
-
             player.setUsername(updatePlayerRequest.getUsername());
             player.setEmail(updatePlayerRequest.getEmail());
             if(updatePlayerRequest.getRounds()!=null) {
                 // changed list to arraylist below
-
                 player.setRounds(new ArrayList<Rounds>(updatePlayerRequest.getRounds()));
             }else{
                 throw new RoundNotFoundException();
             }
             // handicap calculated here
-            // see HandicapCalculator.java
-            player.setHandicap(0);
+            //player.setHandicap(0);
+            HandicapCalculator.calculateHandicapIndex(updatePlayerRequest.getRounds());
             playerDao.savePlayer(player);
-            PlayerModel playerModel = new ModelConverter().toPlayerModel(player);
+            //PlayerModel playerModel = new ModelConverter().toPlayerModel(player);
 
 
             return UpdatePlayerResult.builder()

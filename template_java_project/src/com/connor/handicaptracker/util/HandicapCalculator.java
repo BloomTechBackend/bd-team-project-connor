@@ -1,6 +1,7 @@
 package com.connor.handicaptracker.util;
 
 import com.connor.handicaptracker.dao.models.Course;
+import com.connor.handicaptracker.dao.models.Handicap;
 import com.connor.handicaptracker.dao.models.Player;
 import com.connor.handicaptracker.dao.models.Rounds;
 
