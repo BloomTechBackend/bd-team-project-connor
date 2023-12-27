@@ -20,6 +20,10 @@ public class Course {
         this.slope = slope;
     }
 
+    public Course() {
+
+    }
+
     public String getCourse() {
         return course;
     }

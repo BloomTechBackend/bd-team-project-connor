@@ -31,7 +31,7 @@ public class PlayerDao {
         Player player = this.dynamoDbMapper.load(Player.class, username);
 
         if (player == null) {
-            throw new PlayerNotFoundException("Could not find playlist with id " + username);
+            throw new PlayerNotFoundException("Could not find player with username " + username);
         }
 
         return player;

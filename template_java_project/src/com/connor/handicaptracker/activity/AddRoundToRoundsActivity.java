@@ -82,7 +82,7 @@ public class AddRoundToRoundsActivity implements RequestHandler<AddRoundToRounds
     @Override
     public AddRoundToRoundsResult handleRequest(AddRoundToRoundsRequest addRoundToRoundsRequest, com.amazonaws.services.lambda.runtime.Context context) {
         // retrieve player
-        Player player = playerDao.getPlayer(addRoundToRoundsRequest.getDate());
+        Player player = playerDao.getPlayer(addRoundToRoundsRequest.getUsername());
         if (player == null) {
             throw new PlayerNotFoundException();
         }
@@ -90,7 +90,7 @@ public class AddRoundToRoundsActivity implements RequestHandler<AddRoundToRounds
         //Rounds rounds = roundsDao.getRounds()
         List<Rounds> rounds = player.getRounds();
         // round to add
-        Rounds round = roundsDao.getRound(addRoundToRoundsRequest.getDate(), addRoundToRoundsRequest.getScore());
+        Rounds round = roundsDao.getRoundsByDate(addRoundToRoundsRequest.getDate(), addRoundToRoundsRequest.getScore());
         if (round == null) {
             throw new RoundNotFoundException();
         }

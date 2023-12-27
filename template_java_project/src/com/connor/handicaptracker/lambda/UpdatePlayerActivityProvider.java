@@ -1,6 +1,7 @@
 package com.connor.handicaptracker.lambda;
 
 import com.amazonaws.services.lambda.runtime.Context;
+import com.connor.handicaptracker.dependency.DaggerServiceComponent;
 import com.connor.handicaptracker.dependency.ServiceComponent;
 import com.connor.handicaptracker.models.requests.CreatePlayerRequest;
 import com.connor.handicaptracker.models.requests.GetPlayerRequest;
@@ -16,7 +17,7 @@ public class UpdatePlayerActivityProvider {
 
     }
 
-    @Override
+
     public UpdatePlayerResult handleRequest(final UpdatePlayerRequest UpdatePlayerRequest, Context context) {
         return getServiceComponent().provideUpdatePlayerActivity().handleRequest(UpdatePlayerRequest, context);
     }

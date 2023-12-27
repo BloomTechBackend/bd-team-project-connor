@@ -25,12 +25,7 @@
             </div>
             <div class="field">
                 <!--we dont want to upload an avatar for every round.... out of scope planning is to upload pics of actual scorecards-->
-                <label>Avatar</label>
-                <input
-                        id="Avatar"
-                        type="text"
-                        name="avatar"
-                        placeholder="URL of your avatar picture" />
+
                 <div class="field">
                     <label>Email</label>
                     <input
@@ -58,7 +53,7 @@
 
             </div>
         </div>
-        <button class="ui button blue">Create</button>
+        <button class="ui button blue" id="createPlayerButton" onclick="createPlayer()">Create</button>
     </header>
     <div class="main">
         <div class="main-heading">
@@ -69,6 +64,14 @@
                     type="text"
                     name="name"
                     placeholder="Username" />
+            </div>
+        <div>
+            <label>Date</label>
+            <input
+                    id="Date"
+                    type="text"
+                    name="name"
+                    placeholder="Today's Date" />
         </div>
             <!--this was previously course rating-->
         <form class="ui form" id="contact-form">
@@ -93,6 +96,7 @@
 
                 <button class="ui button blue">Add</button>
             </form>
+
             </form>
             <h2>Previous Rounds</h2>
                 <div class="field">
@@ -112,8 +116,41 @@
                         placeholder="Comma Seperated list of accumulated rounds" />
             </div>
         <button class="ui button blue">Get</button>
+        <div class="ui modal" id="emailModal">
+            <div class="content">
+                <h2 class="header">Change Email Address</h2>
+                <div class="field">
+                    <label>New Email:</label>
+                    <input type="email" id="newEmail" name="email" placeholder="New Email Address">
+                </div>
+            </div>
+            <div class="actions">
+                <button class="ui button primary" id="saveEmailButton">Save Email</button>
+                <button class="ui button red" id="closeModalButton">Cancel</button>
+            </div>
+        </div>
+        <div class="ui modal" id="UsernameModal">
+            <div class="content">
+                <h2 class="header">Change Username</h2>
+                <div class="field">
+                    <label>New Username:</label>
+                    <input type="username" id="newUsername" name="username" placeholder="New Username">
+                </div>
+            </div>
+            <div class="actions">
+                <button class="ui button primary" id="saveUsernameButton">Save username</button>
+                <button class="ui button red" id="closeModalButton2">Cancel</button>
+            </div>
+        </div>
 
-                <h2>Stats</h2>
+
+
+
+
+
+
+        <!--out of scope
+        <h2>Stats</h2> -->
         <!-- PHASE 1: Add your div tag here with atributes class of "ui celled list" and an id of "stats" -->
             </div>
          </div>

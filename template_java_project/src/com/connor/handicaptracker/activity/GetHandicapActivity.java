@@ -63,9 +63,14 @@ public class GetHandicapActivity implements RequestHandler<GetHandicapRequest, G
     @Override
     public GetHandicapResult handleRequest(final GetHandicapRequest getHandicapRequest, Context context) {
 
+        String requestedUsername = getHandicapRequest.getUsername();
         double requestedHandicap = getHandicapRequest.getHandicap();
+
+
         //Player player = playerDao.getPlayer(requestedHandicap);
-        Handicap handicap = handicapDao.getHandicap(String.valueOf(requestedHandicap));
+        //
+        Handicap handicap = handicapDao.getHandicap(requestedUsername, requestedHandicap);
+        //Handicap handicap = handicapDao.getHandicap(requestedHandicap);
         HandicapModel handicapModel = new ModelConverter().toHandicapModel(handicap);
 
         return GetHandicapResult.builder()

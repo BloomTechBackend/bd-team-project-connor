@@ -1,11 +1,16 @@
 package com.connor.handicaptracker.dao;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
-import com.connor.handicaptracker.dao.models.Player;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
 import com.connor.handicaptracker.dao.models.Rounds;
 import com.connor.handicaptracker.exceptions.RoundNotFoundException;
+//import com.connor.roundtracker.dao.models.Rounds;
+//import com.connor.roundtracker.dao.models.Player;
+//import com.connor.roundtracker.dao.models.Rounds;
+//import com.connor.roundtracker.exceptions.RoundNotFoundException;
 
 import javax.inject.Inject;
+import java.util.List;
 
 public class RoundsDao {
     //private Player player;
@@ -39,6 +44,22 @@ public class RoundsDao {
         }
 
         return round;
+    }
+
+    public Rounds getRoundsByDate(String date, double score) {
+        Rounds round = new Rounds();
+        round.setDate(date);
+        round.setScore(score);
+        DynamoDBQueryExpression<Rounds> queryExpression = new DynamoDBQueryExpression()
+                .withHashKeyValues(round)
+                .withScanIndexForward(false)
+                .withLimit(1);
+
+        List<Rounds> results = dynamoDbMapper.query(Rounds.class, queryExpression);
+        if (results.isEmpty()) {
+            return null;
+        }
+        return results.get(0);
     }
 
 

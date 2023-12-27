@@ -1,0 +1,155 @@
+{
+  "username": "johndoe",
+  "email": "johndoe@example.com",
+  "rounds": [
+    {
+      "score": 82,
+      "course": {
+        "rating": 72.0,
+        "slope": 135
+      }
+    },
+    {
+      "score": 80,
+      "course": {
+        "rating": 73.0,
+        "slope": 132
+      }
+    },
+    {
+      "score": 79,
+      "course": {
+        "rating": 74.0,
+        "slope": 130
+      }
+    },
+    {
+      "score": 79,
+      "course": {
+        "rating": 74.0,
+        "slope": 130
+      }
+    },
+    {
+      "score": 79,
+      "course": {
+        "rating": 74.0,
+        "slope": 130
+      }
+    },
+    {
+      "score": 79,
+      "course": {
+        "rating": 74.0,
+        "slope": 130
+      }
+    },
+    {
+      "score": 79,
+      "course": {
+        "rating": 74.0,
+        "slope": 130
+      }
+    },
+    {
+      "score": 79,
+      "course": {
+        "rating": 74.0,
+        "slope": 130
+      }
+    },
+    {
+      "score": 79,
+      "course": {
+        "rating": 69.0,
+        "slope": 130
+      }
+    },
+    {
+      "score": 79,
+      "course": {
+        "rating": 74.0,
+        "slope": 130
+      }
+    },
+    {
+      "score": 79,
+      "course": {
+        "rating": 74.0,
+        "slope": 130
+      }
+    },
+    {
+      "score": 79,
+      "course": {
+        "rating": 75.0,
+        "slope": 130
+      }
+    },
+    {
+      "score": 79,
+      "course": {
+        "rating": 74.0,
+        "slope": 130
+      }
+    },
+    {
+      "score": 79,
+      "course": {
+        "rating": 74.0,
+        "slope": 130
+      }
+    },
+    {
+      "score": 89,
+      "course": {
+        "rating": 75.0,
+        "slope": 135
+      }
+    },
+    {
+      "score": 79,
+      "course": {
+        "rating": 74.0,
+        "slope": 130
+      }
+    },
+    {
+      "score": 79,
+      "course": {
+        "rating": 74.0,
+        "slope": 130
+      }
+    },
+    {
+      "score": 78,
+      "course": {
+        "rating": 74.0,
+        "slope": 130
+      }
+    },
+    {
+      "score": 79,
+      "course": {
+        "rating": 74.0,
+        "slope": 130
+      }
+    },
+    {
+      "score": 79,
+      "course": {
+        "rating": 74.0,
+        "slope": 130
+      }
+    },
+    {
+      "score": 89,
+      "course": {
+        "rating": 74.0,
+        "slope": 130
+      }
+    }
+    ]
+
+
+}

@@ -6,19 +6,30 @@ import com.connor.handicaptracker.models.results.AddRoundToRoundsResult;
 import java.util.Objects;
 
 public class AddRoundToRoundsRequest {
+    private String username;
     private String date;
-    private int score;
+    private double score;
 
     public AddRoundToRoundsRequest() {
 
     }
 
-    public AddRoundToRoundsRequest(String date, int score) {
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public AddRoundToRoundsRequest(String username, String date, double score) {
+        this.username = username;
         this.date = date;
         this.score = score;
     }
 
     public AddRoundToRoundsRequest(Builder builder) {
+        this.username = builder.username;
         this.date = builder.date;
         this.score = builder.score;
     }
@@ -31,11 +42,11 @@ public class AddRoundToRoundsRequest {
         this.date = date;
     }
 
-    public int getScore() {
+    public double getScore() {
         return score;
     }
 
-    public void setScore(int score) {
+    public void setScore(double score) {
         this.score = score;
     }
 
@@ -63,8 +74,9 @@ public class AddRoundToRoundsRequest {
     public static Builder builder() {return new Builder();}
 
     public static final class Builder {
+        private String username;
         private String date;
-        private int score;
+        private double score;
 
         private Builder() {
 
@@ -75,7 +87,7 @@ public class AddRoundToRoundsRequest {
             return this;
         }
 
-        public Builder withScore(int scoreToUse) {
+        public Builder withScore(double scoreToUse) {
             this.score = scoreToUse;
             return this;
         }

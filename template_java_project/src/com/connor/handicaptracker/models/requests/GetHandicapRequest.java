@@ -6,6 +6,7 @@ import java.util.Objects;
 
 public class GetHandicapRequest {
     private String username;
+    //rename
     private double handicap;
 
     public GetHandicapRequest(){
@@ -29,6 +30,8 @@ public class GetHandicapRequest {
         this.username = username;
     }
 
+
+    // this should return a username?
     public double getHandicap() {
         return handicap;
     }

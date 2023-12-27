@@ -1,5 +1,6 @@
 package com.connor.handicaptracker.lambda;
 
+import com.connor.handicaptracker.dependency.DaggerServiceComponent;
 import com.connor.handicaptracker.dependency.ServiceComponent;
 import com.connor.handicaptracker.models.requests.AddRoundToRoundsRequest;
 import com.connor.handicaptracker.models.requests.GetPlayerRequest;
@@ -16,7 +17,7 @@ public class GetPlayerActivityProvider {
 
     }
 
-    @Override
+
     public GetPlayerResult handleRequest(final GetPlayerRequest getPlayerRequest, Context context) {
         return getServiceComponent().provideGetPlayerActivity().handleRequest(getPlayerRequest, context);
     }

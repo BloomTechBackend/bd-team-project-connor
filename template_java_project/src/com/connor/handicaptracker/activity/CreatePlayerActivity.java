@@ -33,6 +33,8 @@ import java.util.List;
  *
  * This API allows the customer to create a new player with a handicap.
  */
+
+// sample handler com.connor.handicaptracker.activity.CreatePlayerActivity::handleRequest
 public class CreatePlayerActivity implements RequestHandler<CreatePlayerRequest, CreatePlayerResult> {
 
      private final PlayerDao playerDao;
@@ -67,7 +69,7 @@ public class CreatePlayerActivity implements RequestHandler<CreatePlayerRequest,
      */
     @Override
     public CreatePlayerResult handleRequest(final CreatePlayerRequest createPlayerRequest, Context context) {
-        //log.info("Received CreatePlayerRequest {}", createPlayerRequest);
+
         if(!HandicapServiceUtils.isValidString(createPlayerRequest.getUsername()) || createPlayerRequest.getUsername().contains("\"")
                 || createPlayerRequest.getUsername().contains("'")
                 || createPlayerRequest.getUsername().contains("\\")){
@@ -103,9 +105,9 @@ public class CreatePlayerActivity implements RequestHandler<CreatePlayerRequest,
                 .withPlayer(new ModelConverter().toPlayerModel(player))
                 .build();
     }
+}
 // ide told me i have to implement this or declare abstract
 //    @Override
 //    public CreatePlayerResult handleRequest(CreatePlayerRequest input, com.amazonaws.services.lambda.runtime.Context context) {
 //        return null;
 //    }
-}
