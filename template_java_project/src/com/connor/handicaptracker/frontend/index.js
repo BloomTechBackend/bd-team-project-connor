@@ -1,4 +1,26 @@
-
+const courseMap = {
+    Highlands: {
+        course:'Highlands',
+        rating: 73.9,
+        slope:139
+    },
+    Glen: {
+        course: 'Glen',
+        rating: 70.1,
+        slope: 120
+    },
+    Waterview: {
+        course: 'Waterview',
+        rating: 73.3,
+        slope: 130
+    },
+    Mesquite: {
+        course: 'Mesquite',
+        rating: 72.9,
+        slope:135
+    }
+};
+//dfw courses for beta test
 
 // Handling Form Submission
 function createPlayer() {
@@ -9,13 +31,25 @@ function createPlayer() {
   const courses = document.getElementById('Courses').value;
 
   const rounds = document.getElementById('Rounds').value;
+
+  var roundList = [];
+  rounds.split('), ').forEach(function(round){
+     round = round.replace("(","");
+     var courseName = round.split(", ")[1];
+     var date = round.split(", ")[0];
+     var score = parseInt(round.split(", ")[2]);
+     var roundObj = {};
+     roundObj.date = date;
+     roundObj.score = score;
+     roundObj.course = courseMap[courseName];
+     roundList.push(roundObj);
+  });
   // Prepare player data object
   const playerData = {
-    username,
-    email,
-    rounds,
-    courses,
-    handicapIndex,
+    username: username,
+    email: email,
+    rounds: roundList,
+    handiCapIndex: handicapIndex,
   };
 
   // Send data to backend using axios
@@ -70,7 +104,7 @@ function updatePlayer(){
     //updateButton.addEventListener('click', updatePlayer);
 
 
-
+// 1/11/24
 function getHandicap(){
       const username = document.getElementById('username').value;
 
@@ -117,9 +151,7 @@ function getPlayer() {
     handicapIndex,
   };
 
-
-
-  axios.get('https://wrl4cgy725.execute-api.us-west-2.amazonaws.com/prod/getPlayers', playerData)
+ axios.get('https://wrl4cgy725.execute-api.us-west-2.amazonaws.com/prod/getPlayers', playerData)
     .then(response => {
       // Success handling
       console.log('Player retrieved successfully!', response.data);
@@ -132,6 +164,152 @@ function getPlayer() {
     });
 
 }
+function addRoundToRounds() {
+/*
+const addRoundJson = {
+    username: username,
+    date: date,
+    score: score,
+    course: courseMap[courseName]
+}
+
+
+*/
+
+}
+
+//// Handling Form Submission
+//function createPlayer() {
+//  // Get data from input fields
+//  const username = document.getElementById('username').value;
+//  const email = document.getElementById('PlayerEmail').value;
+//  const handicapIndex = parseFloat(document.getElementById('Handicap Index').value); // Parse handicap to double
+//  const courses = document.getElementById('Courses').value;
+//
+//  const rounds = document.getElementById('Rounds').value;
+//  // Prepare player data object
+//  const playerData = {
+//    username,
+//    email,
+//    rounds,
+//    courses,
+//    handicapIndex,
+//  };
+//
+//  // Send data to backend using axios
+//  // should path be '/handicaptracker/createplayer'
+//  axios.post('https://wrl4cgy725.execute-api.us-west-2.amazonaws.com/prod/players', playerData)
+//    .then(response => {
+//      // Success handling
+//      console.log('Player created successfully!', response.data);
+//      // Update UI with success message or redirect
+//    })
+//    .catch(error => {
+//      // Error handling
+//      console.error('Error creating player:', error);
+//      // Display error message to user
+//    });
+//
+//}
+//
+//    const createButton = document.getElementById('createPlayerButton');
+//    createButton.addEventListener('click', createPlayer);
+//
+//function updatePlayer(){
+//      const username = document.getElementById('username').value;
+//      const email = document.getElementById('PlayerEmail').value;
+//      const handicapIndex = parseDouble(document.getElementById('Handicap Index').value); // Parse handicap to double
+//      const rounds = document.getElementById('Rounds').value;
+//      const courses = document.getElementById('Courses').value;
+//        // Prepare player data object
+//        const playerData = {
+//          username,
+//          email,
+//          rounds,
+//          handicapIndex,
+//        };
+//
+//        // Send data to backend using axios
+//        axios.put('https://wrl4cgy725.execute-api.us-west-2.amazonaws.com/prod/players', playerData)
+//          .then(response => {
+//            // Success handling
+//            console.log('Player updated successfully!', response.data);
+//            // Update UI with success message or redirect
+//          })
+//          .catch(error => {
+//            // Error handling
+//            console.error('Error updating player:', error);
+//            // Display error message to user
+//          });
+//
+//}
+//
+//   // const updateButton = document.getElementById('updatePlayerButton');
+//    //updateButton.addEventListener('click', updatePlayer);
+//
+//
+//
+//function getHandicap(){
+//      const username = document.getElementById('username').value;
+//
+//      const handicapIndex = parseDouble(document.getElementById('Handicap Index').value); // Parse handicap to double
+//
+//
+//        const playerData = {
+//          username,
+//          handicapIndex,
+//        };
+//
+//          //        https://wrl4cgy725.execute-api.us-west-2.amazonaws.com/prod/handicaptracker/getHandicap
+//        axios.get('https://wrl4cgy725.execute-api.us-west-2.amazonaws.com/prod/getHandicap', playerData)
+//          .then(response => {
+//            // Success handling
+//            console.log('handicap retrieved successfully!', response.data);
+//            // Update UI with success message or redirect
+//          })
+//          .catch(error => {
+//            // Error handling
+//            console.error('Error retrieving handicap:', error);
+//            // Display error message to user
+//          });
+//
+//}
+//
+//   // const getHandicapButton = document.getElementById('getHandicapButton');
+////    getHandicapButton.addEventListener('click', getHandicap);
+//
+//
+//function getPlayer() {
+//  // Get data from input fields
+//  const username = document.getElementById('username').value;
+//  const email = document.getElementById('email').value;
+//  const handicapIndex = parseDouble(document.getElementById('Handicap Index').value); // Parse handicap to double
+//  const rounds = document.getElementById('rounds').value;
+//  const courses = document.getElementById('courses').value;
+//
+//  const playerData = {
+//    username,
+//    email,
+//    rounds,
+//    courses,
+//    handicapIndex,
+//  };
+//
+//
+//
+//  axios.get('https://wrl4cgy725.execute-api.us-west-2.amazonaws.com/prod/getPlayers', playerData)
+//    .then(response => {
+//      // Success handling
+//      console.log('Player retrieved successfully!', response.data);
+//      // Update UI with success message or redirect
+//    })
+//    .catch(error => {
+//      // Error handling
+//      console.error('Error retrieving player:', error);
+//      // Display error message to user
+//    });
+//
+//}
 
     //const getPlayerButton = document.getElementById('getPlayerButton');
   //  getPlayerButton.addEventListener('click', getPlayer);
