@@ -5,6 +5,7 @@ import com.connor.handicaptracker.dao.models.Rounds;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class RoundLinkedListConverter implements DynamoDBTypeConverter<String, L
     @Override
     public List unconvert(String dynamoDbRepresentation) {
         // need to provide the type parameter of the list to convert correctly
-        return GSON.fromJson(dynamoDbRepresentation, new TypeToken<LinkedList<Rounds>>() {
+        return GSON.fromJson(dynamoDbRepresentation, new TypeToken<ArrayList<Rounds>>() {
         }.getType());
     }
 }

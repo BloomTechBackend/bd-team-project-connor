@@ -43,7 +43,7 @@
                         name="index"
                         placeholder="Previous 20 scores with ratings and course name" />
             </div>
-            <div class="field">
+            <!--<div class="field">
                 <label>Courses</label>
                 <input
                         id="Courses"
@@ -60,7 +60,7 @@
                             name="index"
                             placeholder="Current index" />
 
-            </div>
+            </div>-->
         </div>
         <button class="ui button blue" id="createPlayerButton" onclick="createPlayer()">Create</button>
     </header>
@@ -83,7 +83,7 @@
                     placeholder="Today's Date" />
         </div>
             <!--this was previously course rating-->
-        <form class="ui form" id="contact-form">
+
                 <div class="field">
                     <div class="field">
                         <label>Course</label>
@@ -103,11 +103,11 @@
                             placeholder="Today's score" />
                 </div>
 
-                <button class="ui button blue">Add</button>
-            </form>
+                <button id="AddRoundButton" class="ui button blue">Add</button>
 
-            </form>
-            <h2>Previous Rounds</h2>
+
+
+            <h2>Get Handicap</h2>
                 <div class="field">
                 <label>Username</label>
                 <input
@@ -116,16 +116,10 @@
                         name="name"
                         placeholder="Username" />
              </div>
-                <div class="field">
-                <label>Previous Rounds</label>
-                <input
-                        id="Previous Round"
-                        type="text"
-                        name="numbers"
-                        placeholder="Comma Seperated list of accumulated rounds" />
-            </div>
-        <button class="ui button blue">Get</button>
-        <div class="ui modal" id="emailModal">
+
+
+        <button id="GetHandicapButton" class="ui button blue">Get</button>
+        <!--<div class="ui modal" id="emailModal">
             <div class="content">
                 <h2 class="header">Change Email Address</h2>
                 <div class="field">
@@ -149,7 +143,7 @@
             <div class="actions">
                 <button class="ui button primary" id="saveUsernameButton">Save username</button>
                 <button class="ui button red" id="closeModalButton2">Cancel</button>
-            </div>
+            </div>-->
         </div>
 
 

@@ -52,7 +52,7 @@ public class Player {
 
 
     @DynamoDBTypeConverted(converter = RoundLinkedListConverter.class)
-    @DynamoDBAttribute(attributeName = "roundList")
+    @DynamoDBAttribute(attributeName = "rounds")
     public List<Rounds> getRounds() {
         return rounds;
     }

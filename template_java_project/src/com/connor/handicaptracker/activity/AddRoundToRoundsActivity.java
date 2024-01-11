@@ -90,15 +90,24 @@ public class AddRoundToRoundsActivity implements RequestHandler<AddRoundToRounds
         //Rounds rounds = roundsDao.getRounds()
         List<Rounds> rounds = player.getRounds();
         // round to add
-        Rounds round = roundsDao.getRoundsByDate(addRoundToRoundsRequest.getDate(), addRoundToRoundsRequest.getScore());
-        if (round == null) {
-            throw new RoundNotFoundException();
-        }
+//        Rounds round = roundsDao.getRoundsByDate(addRoundToRoundsRequest.getDate(), addRoundToRoundsRequest.getScore());
+//        if (round == null) {
+//            throw new RoundNotFoundException();
+//        }
         // add round to rounds list
+
+        Rounds round = new Rounds();
+        round.setDate(addRoundToRoundsRequest.getDate());
+        round.setScore(addRoundToRoundsRequest.getScore());
+        round.setCourse(addRoundToRoundsRequest.getCourse());
+        if(rounds == null) {
+            rounds = new ArrayList<>();
+        }
+
         rounds.add(round);
         player.setRounds(rounds);
         //updated handicap index
-        HandicapCalculator.calculateHandicapIndex(rounds);
+        player.setHandicap(HandicapCalculator.calculateHandicapIndex(rounds));
         // persist
         playerDao.savePlayer(player);
         // convert to roundModels and add to roundsModelList

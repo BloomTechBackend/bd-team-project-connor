@@ -1,6 +1,7 @@
 package com.connor.handicaptracker.models.requests;
 
 import com.amazonaws.internal.config.Builder;
+import com.connor.handicaptracker.dao.models.Course;
 import com.connor.handicaptracker.models.results.AddRoundToRoundsResult;
 
 import java.util.Objects;
@@ -9,6 +10,15 @@ public class AddRoundToRoundsRequest {
     private String username;
     private String date;
     private double score;
+    private Course course;
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
 
     public AddRoundToRoundsRequest() {
 

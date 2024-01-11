@@ -94,7 +94,8 @@ public class CreatePlayerActivity implements RequestHandler<CreatePlayerRequest,
         }
         //player.getRounds();
         // handicap calculated here
-        HandicapCalculator.calculateHandicapIndex(createPlayerRequest.getRounds());
+
+        player.setHandicap(HandicapCalculator.calculateHandicapIndex(createPlayerRequest.getRounds()));
 
         //player.setHandicap(0);
         playerDao.savePlayer(player);

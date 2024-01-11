@@ -32,7 +32,7 @@ import java.util.logging.Logger;
 public class GetHandicapActivity implements RequestHandler<GetHandicapRequest, GetHandicapResult> {
 
     //private final PlayerDao playerDao;
-    private final HandicapDao handicapDao;
+    private final PlayerDao handicapDao;
 
     /**
      * Instantiates a new GetPlayerActivity object.
@@ -41,13 +41,13 @@ public class GetHandicapActivity implements RequestHandler<GetHandicapRequest, G
      */
 
     @Inject
-    public GetHandicapActivity(HandicapDao handicapDao) {
+    public GetHandicapActivity(PlayerDao handicapDao) {
         this.handicapDao = handicapDao;
     }
 
     public GetHandicapActivity() {
         //playerDao = new PlayerDao(new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient(Regions.US_WEST_2)));
-        this.handicapDao = new HandicapDao(new DynamoDBMapper((AmazonDynamoDB)((AmazonDynamoDBClientBuilder)((AmazonDynamoDBClientBuilder)AmazonDynamoDBClientBuilder.standard().withCredentials(DefaultAWSCredentialsProviderChain.getInstance())).withRegion(Regions.US_WEST_2)).build()));
+        this.handicapDao = new PlayerDao(new DynamoDBMapper((AmazonDynamoDB)((AmazonDynamoDBClientBuilder)((AmazonDynamoDBClientBuilder)AmazonDynamoDBClientBuilder.standard().withCredentials(DefaultAWSCredentialsProviderChain.getInstance())).withRegion(Regions.US_WEST_2)).build()));
     }
 
     /**
@@ -64,12 +64,14 @@ public class GetHandicapActivity implements RequestHandler<GetHandicapRequest, G
     public GetHandicapResult handleRequest(final GetHandicapRequest getHandicapRequest, Context context) {
 
         String requestedUsername = getHandicapRequest.getUsername();
-        double requestedHandicap = getHandicapRequest.getHandicap();
+        //double requestedHandicap = getHandicapRequest.getHandicap();
 
 
-        //Player player = playerDao.getPlayer(requestedHandicap);
-        //
-        Handicap handicap = handicapDao.getHandicap(requestedUsername, requestedHandicap);
+        Player player = handicapDao.getPlayer(requestedUsername);
+        Handicap handicap = new Handicap();
+        handicap.setUsername(player.getUsername());
+        handicap.setHandicapIndex(player.getHandicap());
+       // Handicap handicap = handicapDao.getHandicap(requestedUsername, requestedHandicap);
         //Handicap handicap = handicapDao.getHandicap(requestedHandicap);
         HandicapModel handicapModel = new ModelConverter().toHandicapModel(handicap);
 
