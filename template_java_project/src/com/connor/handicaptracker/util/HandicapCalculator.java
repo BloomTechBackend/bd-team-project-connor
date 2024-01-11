@@ -39,8 +39,11 @@ public class HandicapCalculator {
         }
         averageDifferentialScore /= numScores;
         //multiply avg by .96
-        return averageDifferentialScore * HANDICAP_INDEX_FACTOR;
+        return Math.floor(averageDifferentialScore * HANDICAP_INDEX_FACTOR * 100) / 100;
+
+        //return averageDifferentialScore * HANDICAP_INDEX_FACTOR;
         //handicap will be returned
+
     }
 
     public static double calculateCourseHandicap(double handicapIndex, double slope, double rating) {
