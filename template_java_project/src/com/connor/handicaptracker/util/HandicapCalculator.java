@@ -42,7 +42,7 @@ public class HandicapCalculator {
         return Math.floor(averageDifferentialScore * HANDICAP_INDEX_FACTOR * 100) / 100;
 
         //return averageDifferentialScore * HANDICAP_INDEX_FACTOR;
-        //handicap will be returned
+
 
     }
 
